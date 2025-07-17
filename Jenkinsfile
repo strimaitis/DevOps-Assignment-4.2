@@ -1,0 +1,14 @@
+pipeline {
+    agent none
+         stages {
+	    stage('Build') {
+	        agent {
+	            docker { image 'node:16-alpine' }
+	        }
+	        steps {
+	            echo 'Testing the application'
+	            sh 'node --version'
+	        }
+	    }
+         }
+}
