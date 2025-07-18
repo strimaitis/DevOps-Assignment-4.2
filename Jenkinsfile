@@ -13,6 +13,7 @@ pipeline {
 	    }
 	    stage('Archive') {
 		 steps {
+	            sh 'ls'
 		    archiveArtifacts(artifacts: '**/*.txt', followSymlinks: false)
 		 }
             }
