@@ -8,10 +8,8 @@ pipeline {
 	        steps {
 	            echo 'Testing the application'
 	            sh 'node --version'
-	        }
-		steps {
 		    sh 'echo "Artifact" > artifact.txt'
-		}
+	        }
 	    }
          }
 
