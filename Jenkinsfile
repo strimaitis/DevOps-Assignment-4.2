@@ -19,10 +19,13 @@ pipeline {
 		}
 	    }
             stage('Load Testing') {
-	       steps {
+		agent {
+	            docker { image 'grafana/k6' }
+	        }
+	        steps {
 		    echo '---- Running LOAD TEST ----'
 		    sh 'k6 run test.js'
-	       }
+	        }
 	    }
 	    stage('Archive') {
 		 steps {
