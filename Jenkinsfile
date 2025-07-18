@@ -12,7 +12,7 @@ pipeline {
 	    }
 	    stage('Staging') {
 		when {
-		    branch 'origin/staging'
+		    expression {env.GIT_BRANCH == 'origin/staging'}
 		}
 		steps {
 		    echo '---- IN STAGING ----'
