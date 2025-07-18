@@ -12,7 +12,9 @@ pipeline {
 	        }
 	    }
 	    stage('Archive') {
-		 archiveArtifacts(artifacts: '**/*.txt', followSymlinks: false)
+		 steps {
+		    archiveArtifacts(artifacts: '**/*.txt', followSymlinks: false)
+		 }
             }
 	 }
 }
