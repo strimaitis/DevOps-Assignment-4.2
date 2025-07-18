@@ -8,13 +8,20 @@ pipeline {
 	        steps {
 	            echo 'Testing the application'
 	            sh 'node --version'
-		    sh 'echo "Artifact" > hello.txt'
-	            archiveArtifacts(artifacts: '**/*.txt', followSymlinks: false)
 	        }
+	    }
+	    stage('Staging') {
+		when {
+		    branch 'staging'
+		}
+		steps {
+		    echo '---- IN STAGING ----'
+		}
 	    }
 	    stage('Archive') {
 		 steps {
-	            sh 'ls'
+	            sh 'echo "Artifact" > hello.txt'
+	            archiveArtifacts(artifacts: '**/*.txt', followSymlinks: false)
 		 }
             }
 	 }
