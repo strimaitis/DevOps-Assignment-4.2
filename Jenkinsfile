@@ -9,12 +9,12 @@ pipeline {
 	            echo 'Testing the application'
 	            sh 'node --version'
 		    sh 'echo "Artifact" > hello.txt'
+	            archiveArtifacts(artifacts: '**/*.txt', followSymlinks: false)
 	        }
 	    }
 	    stage('Archive') {
 		 steps {
 	            sh 'ls'
-		    archiveArtifacts(artifacts: '**/*.txt', followSymlinks: false)
 		 }
             }
 	 }
