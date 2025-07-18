@@ -8,14 +8,11 @@ pipeline {
 	        steps {
 	            echo 'Testing the application'
 	            sh 'node --version'
-		    sh 'echo "Artifact" > artifact.txt'
+		    sh 'echo "Artifact" > hello.txt'
 	        }
 	    }
-         }
-
-	post {
-        always {
-            archiveArtifacts(artifacts: '**/*.txt', followSymlinks: false)
-        }
-    }
+	    stage('Archive') {
+		 archiveArtifacts(artifacts: '**/*.txt', followSymlinks: false)
+            }
+	 }
 }
