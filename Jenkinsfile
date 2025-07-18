@@ -15,7 +15,7 @@ pipeline {
 		    branch 'staging'
 		}
 		steps {
-		    sh 'echo "---- IN STAGING ----"'
+		    echo '---- IN STAGING ----'
 		}
 	    }
 	    stage('Archive') {
