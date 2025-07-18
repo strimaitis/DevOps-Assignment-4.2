@@ -18,6 +18,12 @@ pipeline {
 		    echo '---- IN STAGING ----'
 		}
 	    }
+            stage('Load Testing') {
+	       steps {
+		    echo '---- Running LOAD TEST ----'
+		    sh 'k6 run test.js'
+	       }
+	    }
 	    stage('Archive') {
 		 steps {
 	            sh 'echo "Artifact" > hello.txt'
