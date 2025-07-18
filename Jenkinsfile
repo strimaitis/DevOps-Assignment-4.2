@@ -9,12 +9,15 @@ pipeline {
 	            echo 'Testing the application'
 	            sh 'node --version'
 	        }
+		steps {
+		    sh 'echo "Artifact" > artifact.txt'
+		}
 	    }
          }
 
 	post {
         always {
-            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            archiveArtifacts(artifacts: '**/*.txt', followSymlinks: false)
         }
     }
 }
