@@ -12,7 +12,7 @@ pipeline {
 	    }
 	    stage('Staging') {
 		when {
-		    branch 'staging'
+		    branch 'origin/staging'
 		}
 		steps {
 		    echo '---- IN STAGING ----'
