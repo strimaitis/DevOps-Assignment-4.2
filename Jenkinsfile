@@ -21,7 +21,6 @@ pipeline {
             stage('Load Testing') {
 		agent {
 	            docker { image 'grafana/k6' }
-		    reuseNode true
 	        }
 	        steps {
 		    echo '---- Running LOAD TEST ----'
