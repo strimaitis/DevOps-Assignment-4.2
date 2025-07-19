@@ -20,7 +20,7 @@ pipeline {
 	    }
             stage('Load Testing') {
 		agent {
-	            docker { image 'grafana/k6:latest' }
+	            docker { image 'grafana/k6:master-with-browser' }
 	        }
 	        steps {
 		    echo '---- Running LOAD TEST ----'
