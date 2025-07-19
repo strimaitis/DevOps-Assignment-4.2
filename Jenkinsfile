@@ -19,13 +19,12 @@ pipeline {
 		}
 	    }
             stage('Load Testing') {
+		agent {
+	            docker { image 'grafana/k6' }
+	        }
 	        steps {
 		    echo '---- Running LOAD TEST ----'
-		    sh '''
-      		    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	            brew install k6
-	            k6 run test.js
-      		    '''
+		    sh 'k6 --version'
 	        }
 	    }
 	    stage('Archive') {
