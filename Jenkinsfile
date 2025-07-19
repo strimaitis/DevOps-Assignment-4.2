@@ -20,7 +20,7 @@ pipeline {
 	    }
             stage('Load Testing') {
 		agent {
-	            docker { image 'grafana/k6' }
+	            docker { image 'grafana/k6:master-with-browser' }
 		    reuseNode true
 	        }
 	        steps {
