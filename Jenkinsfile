@@ -24,7 +24,7 @@ pipeline {
 	        }
 	        steps {
 		    echo '---- Running LOAD TEST ----'
-		    sh 'k6 --version'
+		    echo 'TEST'
 	        }
 	    }
 	    stage('Archive') {
